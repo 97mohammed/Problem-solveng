@@ -1,0 +1,50 @@
+ 
+  
+  #include <iostream>
+#include <string>
+using namespace std;
+
+
+
+float ReadCircumRference()
+{
+	float L;
+
+	cout << "plese enter  CircumRference  L ? " << endl;
+	cin >> L;
+	
+	return L;
+
+
+}
+
+
+float CircleAreaAlongtheCircumRference(float L)
+
+{
+	const float PI = 3.141592653589793238;
+
+	float Area = pow(L, 2) / (4 * PI);
+
+	return	Area ;
+
+}
+
+
+void PrintResults(float Area )
+
+{
+
+	cout << "Diameter Area is "<< Area << endl;
+
+
+}
+int main()
+{
+		  
+		PrintResults(CircleAreaAlongtheCircumRference(ReadCircumRference()));
+
+
+	return 0;
+}
+  

@@ -1,0 +1,133 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+
+
+
+
+
+enum enChartype { SmallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4 };
+
+int RandNumber(int from, int to)
+{
+    int randN = rand() % (to - from + 1) + from;
+
+
+    return  randN;
+}
+
+
+char GetRandomCharacter(enChartype Chartype)
+{
+    switch (Chartype)
+    {
+
+    case enChartype::SmallLetter:
+    {
+        return char(RandNumber(97, 122));
+        break;
+    }
+    case enChartype::CapitalLetter:
+    {
+        return char(RandNumber(65, 90));
+        break;
+    }
+    case enChartype::SpecialCharacter:
+    {
+        return char(RandNumber(33, 47));
+        break;
+    }
+
+    case enChartype::Digit:
+    {
+        return char(RandNumber(48, 57));
+        break;
+    }
+
+    }
+}
+
+int  ReadPositveNummer(string Message)
+{
+    float Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number <= 0);
+
+
+    return Number;
+}
+
+string GenerateWord(enChartype Chartype, int length)
+{
+    string word;
+
+    for (int i = 1; i <= length; i++)
+    {
+        word = word + GetRandomCharacter(Chartype);
+    }
+
+    return word;
+
+}
+
+string GenerateKey()
+
+{
+    string key = "";
+    key = GenerateWord(enChartype::CapitalLetter, 4) + "-";
+    key = key + GenerateWord(enChartype::CapitalLetter, 4) + "-";
+    key = key + GenerateWord(enChartype::CapitalLetter, 4) + "-";
+    key = key + GenerateWord(enChartype::CapitalLetter, 4);
+
+
+    return key;
+}
+
+
+
+
+void FillArraywithkey(string arr[100] , int length)
+{
+
+    for (int i = 0; i < length; i++)
+    {
+        arr[i] = GenerateKey() ;
+    }
+
+}
+
+
+void PrintArray(string arr[100], int length)
+{
+    cout << "\nArray elements:\n\n";
+    for (int i = 0; i < length; i++)
+    {
+        cout << "Array[" << i << "] :";
+        cout << arr[i] <<"\n";
+    }
+
+    cout << "\n";
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    string arr[100];
+    int length = 0;
+    length=ReadPositveNummer("Please enter the a number ? ");
+
+
+    FillArraywithkey(arr, length);
+    PrintArray(arr, length);
+
+    return 0;
+}
+
+

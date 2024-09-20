@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+
+
+int RandNumber(int from, int to)
+{
+    int randN = rand() % (to - from + 1) + from;
+
+    
+    return  randN;
+}
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    cout << RandNumber(10,20) << endl;
+    cout << RandNumber(10, 200) << endl;
+    cout << RandNumber(10, 20) << endl;
+
+
+    return 0;
+}

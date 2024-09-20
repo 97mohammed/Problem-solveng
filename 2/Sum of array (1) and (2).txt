@@ -1,0 +1,115 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int  ReadPositveNummer(string Message)
+{
+    float Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number <= 0);
+
+
+    return Number;
+}
+
+
+int RandNumber(int from, int to)
+{
+    int randN = rand() % (to - from + 1) + from;
+
+
+    return  randN;
+}
+
+
+void FillArray(int arr[100], int& length)
+{
+    
+    
+     
+
+        for (int  i = 0; i < length; i++)
+        
+            arr[i] = RandNumber(1, 100);
+
+       
+
+
+
+}
+
+
+
+
+void Sumof2Arrays(int arr1[100], int arr2[100], int arrSum[100], int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        arrSum[i] = arr1[i] + arr2[i];
+    }
+
+
+}
+    
+
+void PrintArray(int arr[100], int length)
+{
+
+    for (int i = 0; i < length; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    cout << "\n";
+}
+
+
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int arr[100], arr2[100], arrSum[100];
+    int length = ReadPositveNummer("How many elements ?\n");
+
+
+    FillArray(arr, length);
+    FillArray(arr2, length);
+
+
+    Sumof2Arrays(arr, arr2, arrSum, length);
+
+    cout << "\nArray 1 Elements : \n";
+    PrintArray(arr, length);
+
+    cout << "\nArray 2 Elements : \n";
+    PrintArray(arr2, length);
+
+    cout << "\Sum f array 1 and array 2 elements : \n";
+    PrintArray(arrSum, length);
+
+        return 0;
+}
+

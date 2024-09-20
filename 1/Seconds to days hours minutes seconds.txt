@@ -1,0 +1,74 @@
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+struct strTaskDuration
+{
+    int NumberOfDays, NumberOfHours, NumberOfMinutes, NumberOfSecunds ;
+};
+
+
+
+
+int ReadPositiveNumber(string Message)
+{
+
+    int Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number <= 0  );
+
+
+    return Number;
+}
+
+strTaskDuration SecondsToTaskDuration (int TotalSeconds)
+{
+    strTaskDuration TaskDuration;
+
+    const int SeconsPerDay = 24 * 60 * 60;
+    const int SeconsPerHours = 60 * 60;
+    const int SeconsPerMinute =  60;
+
+
+    int Remainder = 0; 
+    
+    TaskDuration.NumberOfDays = floor(TotalSeconds / SeconsPerDay);
+    Remainder = TotalSeconds % SeconsPerDay;
+    TaskDuration.NumberOfHours = floor(Remainder / SeconsPerHours);
+    Remainder = Remainder % SeconsPerHours;
+    TaskDuration.NumberOfMinutes = floor(Remainder / SeconsPerMinute);
+    Remainder = Remainder % SeconsPerMinute;
+    TaskDuration.NumberOfSecunds = Remainder ;
+
+    return TaskDuration;
+}
+    
+void PrintTaskDurationDetails(strTaskDuration TaskDuration)
+{
+    cout << endl;
+
+    cout << TaskDuration.NumberOfDays << ":" 
+        << TaskDuration.NumberOfHours << ":"
+        << TaskDuration.NumberOfMinutes << ":"
+        << TaskDuration.NumberOfSecunds << "\n";
+
+
+        
+
+
+
+}
+int main()
+{
+
+    int TotalSeconds = ReadPositiveNumber("Please Enter Total Seconds ?");
+        PrintTaskDurationDetails(SecondsToTaskDuration(TotalSeconds));
+
+    return 0;
+};

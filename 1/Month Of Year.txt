@@ -1,0 +1,85 @@
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+enum enMonOfYear { Jan = 1, Feb = 2, Mar = 3, Apr = 4,
+    May = 5, Jun = 6, Jul = 7 , Aug = 8, Sep= 9,
+          Okt = 10, Nov = 11, Des =12 };
+
+
+
+int ReadNumberInRange (string Message , int From ,int To)
+{
+
+    int Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number < From  ||  Number > To );
+
+
+    return Number;
+}
+
+enMonOfYear  ReadMonOfYear()
+{
+    
+    return (enMonOfYear)ReadNumberInRange(" Please enter a Month of the Year ?" ,1,12);
+
+}
+
+string GetMonOfYear( enMonOfYear  Month)
+{
+    switch (Month)
+    {
+    case enMonOfYear::Jan:
+        return "Saturday";
+    case enMonOfYear::Feb:
+        return "Sunday";
+    case enMonOfYear::Mar:
+        return "Monday";
+    case enMonOfYear::Apr:
+        return "Tuesday";
+    case enMonOfYear::May:
+        return "Wednesday";
+    case enMonOfYear::Jun:
+        return "Thursday";
+    case enMonOfYear::Jul:
+         return "Friday";
+    case enMonOfYear::Aug:
+        return "Sunday";
+    case enMonOfYear::Sep:
+        return "Monday";
+    case enMonOfYear::Okt:
+        return "Tuesday";
+    case enMonOfYear::Nov:
+        return "Wednesday";
+    case enMonOfYear::Des:
+        return "Thursday";
+
+
+
+    default:
+        return "Not";
+    }
+
+
+
+}
+
+
+
+
+
+int main()
+{
+
+    cout << GetMonOfYear(ReadMonOfYear()) << endl;
+
+    return 0;
+	 
+	 }

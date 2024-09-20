@@ -1,0 +1,49 @@
+Area-by-Diameter
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+float ReadDiameter()
+{
+	float D;
+
+	cout << "plese enter  radious R ? " << endl;
+	cin >> D;
+	
+	return D;
+
+
+}
+
+
+float CircleAreabyDiameter(float D)
+
+{
+	const float PI = 3.141592653589793238 ;
+
+	float Area = (PI * pow(D,  2)) / 4;
+	return	Area ;
+
+}
+
+
+void PrintResults(float Area )
+
+{
+
+	cout << "Diameter Area is "<< Area << endl;
+
+
+}
+int main()
+{
+		  
+		PrintResults(CircleAreabyDiameter(ReadDiameter()));
+
+
+	return 0;
+}

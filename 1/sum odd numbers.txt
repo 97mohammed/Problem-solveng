@@ -1,0 +1,82 @@
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+enum enOddorEven { Odd = 1, Even = 2 };
+
+int ReadNumber()
+{
+    int Number;
+    cout << "Please enter your Number: ";
+    cin >> Number;
+    return Number;
+}
+
+enOddorEven CheckOddorEven(int Number)
+{
+    if (Number % 2 != 0)
+        return enOddorEven::Odd;
+    else
+        return enOddorEven::Even;
+}
+
+int SumOddNumbersFrom1tooN_UsingWhile(int N)
+{
+    int Counter = 0;
+    int sum = 0;
+
+    cout << "Sum odd numbers using While Statement:\n";
+    while (Counter < N)
+    {
+        Counter++;
+        if (CheckOddorEven(Counter) == enOddorEven::Odd)
+        {
+            sum += Counter;
+        }
+    }
+    return sum;
+}
+
+int SumOddNumbersFrom1tooN_UsingDoWhile(int N)
+{
+    int Counter = 0;
+    int sum = 0;
+
+    cout << "Sum odd numbers using Do...While Statement:\n";
+    do
+    {
+        Counter++;
+        if (CheckOddorEven(Counter) == enOddorEven::Odd)
+        {
+            sum += Counter;
+        }
+    } while (Counter < N);
+
+    return sum;
+}
+
+int SumOddNumbersFrom1tooN_UsingFor(int N)
+{
+    int sum = 0;
+
+    cout << "Sum odd numbers using For Statement:\n";
+    for (int Counter = 1; Counter <= N; Counter++)
+    {
+        if (CheckOddorEven(Counter) == enOddorEven::Odd)
+        {
+            sum += Counter;
+        }
+    }
+    return sum;
+}
+
+int main()
+{
+    int N = ReadNumber();
+    cout << SumOddNumbersFrom1tooN_UsingWhile(N) << endl;
+    cout << SumOddNumbersFrom1tooN_UsingDoWhile(N) << endl;
+    cout << SumOddNumbersFrom1tooN_UsingFor(N) << endl;
+    return 0;
+}

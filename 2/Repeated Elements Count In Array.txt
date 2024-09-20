@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+
+int  ReadPositveNummer(string Message)
+{
+    float Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number <= 0);
+
+
+    return Number;
+}
+
+
+
+void ReadArray(int arr[100], int& arrlength)
+{
+    cout << "\nEnter number of elements:\n";
+    cin >> arrlength;
+
+    cout << "\nEnter array elements: \n";
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << "Elements [" << i + 1 << "] : ";
+        cin >> arr[i];
+    }
+    cout << endl;
+}
+
+
+void PrintArray(int arr[100], int arrlength)
+{
+
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout<< arr[i] << " ";
+    }
+
+    cout << "\n";
+}
+
+int TimesRepeated(int Number, int arr[100], int arrlength)
+{
+    int counter = 0;
+    for (int i = 0; i <= arrlength; i++)
+    {
+        if(Number == arr[i])
+        {
+            counter++;
+        
+        }
+    }
+    return counter;
+}
+
+int main()
+{
+    int arr[100], arrlength, Numbertocheck;
+    ReadArray(arr, arrlength);
+
+
+
+    Numbertocheck= (ReadPositveNummer(" Enter the  number  you want to check: "));
+        
+
+    cout << "\nNumber " << Numbertocheck;
+    cout << " is repeated ";
+    cout << TimesRepeated(Numbertocheck, arr, arrlength) << " time(s)\n";
+        return 0;
+}
+

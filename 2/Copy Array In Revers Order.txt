@@ -1,0 +1,100 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+
+
+
+
+
+int RandNumber(int from, int to)
+{
+
+    
+    int randN = rand() % (to - from + 1) + from;
+
+
+    return  randN;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100], int& length)
+{
+    
+    cout  nEnter number of elements  n;
+    cin  length;
+     
+
+        for (int  i = 0; i  length; i++)
+        
+            arr[i] = RandNumber(1, 100);
+
+       
+
+
+
+}
+
+
+void PrintArray(int arr[100], int length)
+{
+ 
+    for (int i = 0; i  length; i++)
+    {
+        cout  arr[i]   ;
+    }
+
+    cout  n;
+}
+
+
+void CopyArrayInReversOrder(int arrSource[100], int arrDestination[100],int length)
+{
+
+    for (int i = 0; i  length; i++)
+
+        arrDestination[i] = arrSource[length-1-i];
+
+}
+
+    
+
+{
+
+    for (int i = 0; i  length; i++)
+    {
+        cout  arr[i]   ;
+    }
+
+    cout  n;
+}
+
+
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int arr[100], length;
+
+    FillArrayWithRandomNumbers(arr, length);
+
+
+
+    int arr2[100];
+
+    CopyArrayInReversOrder(arr, arr2, length);
+
+    cout  nArray 1 alements   n;
+    PrintArray(arr, length);
+
+
+
+    cout  nArray 2 elements   n;
+    PrintArray(arr2, length);
+
+
+        return 0;
+}

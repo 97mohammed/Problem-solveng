@@ -1,0 +1,52 @@
+Circle-Area
+
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+float ReadRadious()
+{
+	float R;
+
+	cout << "plese enter  radious R ? " << endl;
+	cin >> R;
+	
+	return R;
+
+
+}
+
+
+float CircleArea(float R)
+
+{
+	const float PI = 3.141592653589793238 ;
+
+	float Area = pow(R,  2) * PI;
+	return	Area ;
+
+}
+
+
+void PrintResults(float Area )
+
+{
+
+	cout << "Triangle Area is "<< Area << endl;
+
+
+}
+int main()
+{
+		  
+		PrintResults(CircleArea(ReadRadious()));
+
+
+	return 0;
+}

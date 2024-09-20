@@ -1,0 +1,100 @@
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+struct stInfo
+
+{
+	string FirstName;
+	string LastName;
+};
+
+stInfo Readinfo()
+{
+	stInfo Info;
+	cout << "plese enter your First Name ?" << endl;
+	cin >> Info.FirstName;
+
+	cout << "please enter you last Name  ?" << endl;
+	cin >> Info.LastName;
+
+	return Info;
+}
+string GetFullName(stInfo Info)
+{
+	string FullName = "";
+	FullName = Info.FirstName +  " " + Info.LastName;
+	return  FullName;
+
+};
+
+
+
+void PrintResult(string FullName)
+{
+	cout << "\n Your FullName is :" << FullName << endl;
+};
+
+int main()
+{
+
+
+		PrintResult(GetFullName(Readinfo()));
+
+	return 0;
+}
+
+
+----------------------------------------------------------------
+
+Edit FirstName .
+
+
+struct stInfo
+
+{
+	string FirstName;
+	string LastName;
+};
+
+stInfo Readinfo()
+{
+	stInfo Info;
+	cout << "plese enter your First Name ?" << endl;
+	cin >> Info.FirstName;
+
+	cout << "please enter you last Name  ?" << endl;
+	cin >> Info.LastName;
+
+	return Info;
+}
+string GetFullName(stInfo Info , bool Reversed)
+{	
+	string FullName = "";
+
+	if (Reversed)
+		FullName = Info.LastName + " " + Info.FirstName;
+
+	else
+    FullName = Info.FirstName +  " " + Info.LastName;
+	return  FullName;
+
+};
+
+
+
+void PrintResult(string FullName)
+{
+	cout << "\n Your FullName is :" << FullName << endl;
+};
+
+int main()
+{
+
+
+		PrintResult(GetFullName(Readinfo(),true));
+return 0;
+}

@@ -1,0 +1,111 @@
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+void ReadNumbers(int& Num1, int& Num2, int& Num3)
+{
+
+
+	cout << "plese enter your number3 ?" << endl;
+	cin >> Num1;
+	cout << "plese enter your number2 ?" << endl;
+	cin >> Num2;
+	cout << "plese enter your number3 ?" << endl;
+	cin >> Num3;
+
+}
+
+
+int Sumof3Numbers(int Num1, int Num2, int Num3)
+{
+	return Num1 + Num2 + Num3;
+
+}
+
+void PrintResults(int Total)
+
+{
+
+	cout << "\n the total sum of number is: " << Total << endl;
+
+}
+int main()
+{
+      int Num1,  Num2,  Num3;
+       ReadNumbers(Num1, Num2, Num3);
+		PrintResults(Sumof3Numbers( Num1, Num2, Num3));
+
+	return 0;
+}
+
+------------------------------------------------------------------------
+
+11
+
+void ReadNumbers(int& Mark1, int& Mark2, int& Mark3)
+#include <iostream>
+#include <string>
+using namespace std;
+
+enum enPassFail { Pass=1, Fail=2};
+
+
+void ReadNumbers(int& Mark1, int& Mark2, int& Mark3)
+{
+
+
+	cout << "plese enter your mark 1 ?" << endl;
+	cin >> Mark1;
+	cout << "plese enter your mark 2 ?" << endl;
+	cin >> Mark2;
+	cout << "plese enter your mark 3 ?" << endl;
+	cin >> Mark3;
+
+}
+
+
+int Sumof3marks(int Mark1, int Mark2, int Mark3)
+{
+	return Mark1 + Mark2 + Mark3;
+
+}
+
+
+
+float  CalculateAverage(int Mark1, int Mark2, int Mark3)
+{
+	return(float)Sumof3marks(Mark1, Mark2, Mark3) / 3;
+}
+
+enPassFail CheckAverage(float Average)
+{
+	if (Average >= 50)
+		return enPassFail::Pass;
+	else
+		return enPassFail::Fail;
+
+}
+
+void PrintResults(int Average)
+
+{
+
+	cout << "\n your  average is:" << Average << endl;
+	if (CheckAverage(Average) == enPassFail::Pass)
+		cout << "\n you passed" << endl;
+	else 
+		cout << "\n you failed" << endl;
+
+}
+int main()
+{
+      int  Mark1,  Mark2,  Mark3;
+       ReadNumbers(Mark1, Mark2, Mark3);
+		PrintResults(CalculateAverage(Mark1, Mark2, Mark3));
+
+	return 0;
+}

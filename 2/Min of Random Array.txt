@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+
+
+
+
+
+
+void FillArray(int arr[100], int& length)
+{
+    
+    
+        cout << "Enter Number Of Elements ?  : \n";
+        cin >> length;
+
+        for (int  i = 0; i < length; i++)
+        
+            arr[i] = RandNumber(1, 100);
+        
+
+
+
+}
+
+
+void PrintArray(int arr[100], int length)
+{
+
+    for (int i = 0; i < length; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    cout << "\n";
+}
+
+
+int CheckMinNummer(int arr[100], int length)
+{
+
+    int min= 0;
+    min = arr[0];
+    for (int i = 0; i < length; i++)
+    {
+       
+        if (arr[i] < min)
+        {
+            min = arr[i];
+
+        }
+    }
+    return min
+}
+
+
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+    int arr[100],  length;
+    FillArray(arr, length);
+
+
+
+    cout << "\nArray Elements : ";
+    PrintArray(arr, length);
+    
+    cout << "Min nummer :";
+    cout<<CheckMinNummer(arr, length)<<endl;
+        return 0;
+}
+
+

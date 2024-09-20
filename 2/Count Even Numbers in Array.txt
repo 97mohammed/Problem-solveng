@@ -1,0 +1,65 @@
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+
+int RandNumber(int from, int to)
+{
+    int randN = rand() % (to - from + 1) + from;
+    return randN;
+}
+
+void FillArray(int arr[100], int& length)
+{
+    cout << "Enter Number Of Elements? : \n";
+    cin >> length;
+
+    for (int i = 0; i < length; i++)
+    {
+        arr[i] = RandNumber(1, 100);
+    }
+}
+
+
+void PrintArray(int arr[100], int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+}
+
+int EvenCount(int arr[100], int length)
+    {
+    int counter = 0;
+
+    for (int i = 0; i < length; i++)
+        if (arr[i] %2 == 0)
+        {
+            counter++;            
+        }
+    return counter;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+
+
+
+    int arr[100], length=0;
+    FillArray(arr, length);
+
+   
+    cout << "\nArray Elements : \n";
+    PrintArray(arr, length);
+    cout << "\nOdd Numbers count is : ";
+    cout<<EvenCount(arr, length);
+    
+    return 0;
+}
